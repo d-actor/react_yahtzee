@@ -10,15 +10,17 @@ import d6 from '../images/d6.png';
 const images = { d1, d2, d3, d4, d5, d6 };
 
 const styles = {
-  die: { marginLeft: '20px' }
+  die: { marginLeft: '20px' },
+  selected: { borderBottom: 'solid 2px blue' }
 }
 
-const Die = ({ value }) => (
+const Die = ({ value, index, kept, toggleKept }) => (
   <Grid.Column textAlign='center' width={3}>
     <Image 
-      style={styles.die}
+      style={ kept ? {...styles.die, ...styles.selected} : styles.die }
       src={images[`d${value}`]} 
       alt ={`dice value ${value}`} 
+      onClick={ () => toggleKept(index)}
     />
   </Grid.Column>
 )
