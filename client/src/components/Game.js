@@ -23,11 +23,17 @@ class Game extends Component {
   }
 
   render() {
+    const { roll, dice } = this.state;
+
     return(
       <Grid>
         <Grid.Row>
           <Grid.Column width={10} style={{ ...styles.fullHeight, ...styles.board }}>
-            <Board />
+            <Board 
+              roll={roll}
+              dice={dice}
+              rollDice={this.rollDice}
+            />
           </Grid.Column>
           <Grid.Column width={6} style={{ ...styles.fullHeight, ...styles.scores }}>
             <ScoreCard />
